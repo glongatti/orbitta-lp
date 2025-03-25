@@ -23,31 +23,21 @@ import { useState } from "react";
 export default function Home() {
   const [isWhatsAppDialogOpen, setIsWhatsAppDialogOpen] = useState(false);
 
-  const scrollToContact = () => {
+  const openWhatsApp = () => {
     // Track CTA click
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("track", "CtaClick");
     }
 
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const openChat = () => {
-    // Track CTA click
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "CtaClick");
-    }
-
-    // @ts-ignore
-    window.neurolead.open();
+    window.open(
+      "https://api.whatsapp.com/send/?phone=5511971683453&text=Oi%2C+quero+lan%C3%A7ar+o+meu+SaaS%21&type=phone_number&app_absent=0https://wa.me/5511971683453?text=Oi, quero lançar o meu SaaS!",
+      "_blank"
+    );
   };
 
   return (
     <main className="relative overflow-hidden bg-[#131313] text-[#f1f1f1]">
-      <FloatingNavbar onContactClick={openChat} />
+      <FloatingNavbar onContactClick={openWhatsApp} />
       <WhatsAppDialog
         isOpen={isWhatsAppDialogOpen}
         onClose={() => setIsWhatsAppDialogOpen(false)}
@@ -64,38 +54,40 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="py-6 flex justify-between items-center">
-            <div className="font-roboto text-xl font-medium">
+          <nav className="py-4 sm:py-6 flex justify-between items-center">
+            <div className="font-roboto text-lg sm:text-xl font-medium">
               orbitta digital
             </div>
           </nav>
 
-          <div className="min-h-[calc(100vh-88px)] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-20">
+          <div className="min-h-[calc(100vh-72px)] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-8 sm:py-12 md:py-16 lg:py-20">
             {/* Text Content */}
-            <div className="text-left relative z-10">
-              <h1 className="font-roboto text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <div className="text-left relative z-10 space-y-6">
+              <h1 className="font-roboto text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 Monetize sua Base de Alunos com um SaaS Personalizado e Gere
                 Receita Recorrente
               </h1>
 
-              <div className="mb-8">
-                <p className="font-roboto text-xl text-[#c7c7c7] font-light">
+              <div>
+                <p className="font-roboto text-lg sm:text-xl text-[#c7c7c7] font-light">
                   Vamos construir em semanas um software que ajudará seu aluno a
                   ter mais resultados, enquanto gera uma nova fonte de receita
                   para o seu negócio escalar ainda mais.
                 </p>
               </div>
 
-              <button
-                onClick={scrollToContact}
-                className="cta-button text-lg font-medium font-roboto"
-              >
-                <span>Quero Monetizar Minha base de Alunos</span>
-              </button>
+              <div className="pt-2">
+                <button
+                  onClick={openWhatsApp}
+                  className="cta-button text-base sm:text-lg font-medium font-roboto w-full sm:w-auto"
+                >
+                  <span>Quero Monetizar Minha base de Alunos</span>
+                </button>
+              </div>
             </div>
 
             {/* Image */}
-            <div className="relative">
+            <div className="relative lg:block hidden">
               <img
                 src="/images/notebook.png"
                 alt="Notebook com software personalizado"
@@ -103,8 +95,17 @@ export default function Home() {
               />
             </div>
 
-            {/* Scroll Indicator - Moved outside the grid */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+            {/* Mobile Image */}
+            <div className="relative block lg:hidden -mt-8">
+              <img
+                src="/images/notebook.png"
+                alt="Notebook com software personalizado"
+                className="w-full h-auto floating-notebook"
+              />
+            </div>
+
+            {/* Scroll Indicator - Hidden on mobile */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
               <div className="scroll-indicator flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group">
                 <div className="relative w-12 h-12 flex items-center justify-center">
                   <ChevronDown className="w-8 h-8 absolute group-hover:scale-110 transition-transform" />
@@ -116,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* Problem Section */}
-      <section className="relative py-32">
+      <section className="relative py-16 sm:py-24 md:py-32">
         {/* Background Spheres */}
         <div className="floating-sphere sphere-4" />
         <div className="floating-sphere sphere-5" />
@@ -217,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section className="relative py-32">
+      <section className="relative py-16 sm:py-24 md:py-32">
         {/* Background Spheres */}
         <div className="floating-sphere sphere-6" />
         <div className="floating-sphere sphere-7" />
@@ -384,7 +385,7 @@ export default function Home() {
 
           <div className="flex justify-center mt-16">
             <button
-              onClick={scrollToContact}
+              onClick={openWhatsApp}
               className="cta-button text-lg font-medium font-roboto"
             >
               <span>Quero aumentar o meu LTV</span>
@@ -394,7 +395,7 @@ export default function Home() {
       </section>
 
       {/* Examples Section */}
-      <section className="relative py-32">
+      <section className="relative py-16 sm:py-24 md:py-32">
         {/* Background Spheres */}
         <div className="floating-sphere sphere-8" />
         <div className="floating-sphere sphere-9" />
@@ -435,7 +436,7 @@ export default function Home() {
             <div className="rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-[10px] border border-white/10 p-8">
               <div className="flex flex-col space-y-6">
                 <div className="relative w-full aspect-video rounded-xl overflow-hidden">
-                  <img 
+                  <img
                     src="/images/marketplace.png"
                     alt="Marketplace de trabalho para alunos"
                     className="w-full h-full object-cover"
@@ -446,19 +447,29 @@ export default function Home() {
                     Marketplace de Trabalho
                   </h3>
                   <p className="font-roboto text-lg text-gray-300 font-light mb-6">
-                    Se você ensina um serviço (como copywriting, design ou tráfego pago), <span className="font-bold">por que não conectar seus alunos a clientes reais?</span>
+                    Se você ensina um serviço (como copywriting, design ou
+                    tráfego pago),{" "}
+                    <span className="font-bold">
+                      por que não conectar seus alunos a clientes reais?
+                    </span>
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        Crie um <span className="font-bold">marketplace exclusivo</span>, onde seus alunos possam oferecer seus serviços e conquistar novas oportunidades profissionais.
+                        Crie um{" "}
+                        <span className="font-bold">marketplace exclusivo</span>
+                        , onde seus alunos possam oferecer seus serviços e
+                        conquistar novas oportunidades profissionais.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        <span className="font-bold">Mais do que ensinar, você se torna um canal real de transformação e empregabilidade.</span>
+                        <span className="font-bold">
+                          Mais do que ensinar, você se torna um canal real de
+                          transformação e empregabilidade.
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -470,7 +481,7 @@ export default function Home() {
             <div className="rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-[10px] border border-white/10 p-8">
               <div className="flex flex-col space-y-6">
                 <div className="relative w-full aspect-video rounded-xl overflow-hidden">
-                  <img 
+                  <img
                     src="/images/methodology.png"
                     alt="Metodologias em plataformas digitais"
                     className="w-full h-full object-cover"
@@ -481,19 +492,36 @@ export default function Home() {
                     Metodologias em Plataformas (Adeus, Planilhas!)
                   </h3>
                   <p className="font-roboto text-lg text-gray-300 font-light mb-6">
-                    Se sua metodologia exige <span className="font-bold">planilhas, checklists ou processos manuais</span>, imagine <span className="font-bold">o impacto de transformar tudo isso em um software dinâmico e automatizado!</span>
+                    Se sua metodologia exige{" "}
+                    <span className="font-bold">
+                      planilhas, checklists ou processos manuais
+                    </span>
+                    , imagine{" "}
+                    <span className="font-bold">
+                      o impacto de transformar tudo isso em um software dinâmico
+                      e automatizado!
+                    </span>
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        Em vez de alunos se perdendo em arquivos soltos, você entrega <span className="font-bold">uma plataforma prática e intuitiva</span>, onde eles podem aplicar sua metodologia com mais eficiência.
+                        Em vez de alunos se perdendo em arquivos soltos, você
+                        entrega{" "}
+                        <span className="font-bold">
+                          uma plataforma prática e intuitiva
+                        </span>
+                        , onde eles podem aplicar sua metodologia com mais
+                        eficiência.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        <span className="font-bold">Mais organização, mais produtividade e um aprendizado mais fluido.</span>
+                        <span className="font-bold">
+                          Mais organização, mais produtividade e um aprendizado
+                          mais fluido.
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -505,7 +533,7 @@ export default function Home() {
             <div className="rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-[10px] border border-white/10 p-8">
               <div className="flex flex-col space-y-6">
                 <div className="relative w-full aspect-video rounded-xl overflow-hidden">
-                  <img 
+                  <img
                     src="/images/community.png"
                     alt="Comunidade exclusiva para alunos"
                     className="w-full h-full object-cover"
@@ -516,19 +544,31 @@ export default function Home() {
                     Comunidade Exclusiva
                   </h3>
                   <p className="font-roboto text-lg text-gray-300 font-light mb-6">
-                    Os alunos não aprendem só com o conteúdo – <span className="font-bold">o networking e o suporte da comunidade fazem toda a diferença.</span>
+                    Os alunos não aprendem só com o conteúdo –{" "}
+                    <span className="font-bold">
+                      o networking e o suporte da comunidade fazem toda a
+                      diferença.
+                    </span>
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        Com uma <span className="font-bold">plataforma interativa</span>, você cria um ambiente único para seus alunos trocarem experiências, compartilharem conquistas e se ajudarem mutuamente.
+                        Com uma{" "}
+                        <span className="font-bold">plataforma interativa</span>
+                        , você cria um ambiente único para seus alunos trocarem
+                        experiências, compartilharem conquistas e se ajudarem
+                        mutuamente.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        Um espaço digital próprio <span className="font-bold">aumenta o engajamento, fortalece seu branding e mantém seus alunos conectados por mais tempo.</span>
+                        Um espaço digital próprio{" "}
+                        <span className="font-bold">
+                          aumenta o engajamento, fortalece seu branding e mantém
+                          seus alunos conectados por mais tempo.
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -540,7 +580,7 @@ export default function Home() {
             <div className="rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-[10px] border border-white/10 p-8">
               <div className="flex flex-col space-y-6">
                 <div className="relative w-full aspect-video rounded-xl overflow-hidden">
-                  <img 
+                  <img
                     src="/images/members.png"
                     alt="Área de membros personalizada"
                     className="w-full h-full object-cover"
@@ -551,19 +591,30 @@ export default function Home() {
                     Área de Membros Própria
                   </h3>
                   <p className="font-roboto text-lg text-gray-300 font-light mb-6">
-                    Dependendo de plataformas de terceiros para hospedar seus cursos? <span className="font-bold">Que tal ter seu próprio ambiente de aprendizado, 100% personalizado para o seu método?</span>
+                    Dependendo de plataformas de terceiros para hospedar seus
+                    cursos?{" "}
+                    <span className="font-bold">
+                      Que tal ter seu próprio ambiente de aprendizado, 100%
+                      personalizado para o seu método?
+                    </span>
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        Com uma <span className="font-bold">plataforma sob medida</span>, você oferece uma experiência premium, sem distrações e com todas as ferramentas que seus alunos realmente precisam.
+                        Com uma{" "}
+                        <span className="font-bold">plataforma sob medida</span>
+                        , você oferece uma experiência premium, sem distrações e
+                        com todas as ferramentas que seus alunos realmente
+                        precisam.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
                       <span className="text-blue-400">•</span>
                       <p className="font-roboto text-lg text-gray-300 font-light">
-                        <span className="font-bold">Seu conteúdo, sua marca, seu ecossistema.</span>
+                        <span className="font-bold">
+                          Seu conteúdo, sua marca, seu ecossistema.
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -574,7 +625,7 @@ export default function Home() {
 
           <div className="flex justify-center mt-16">
             <button
-              onClick={scrollToContact}
+              onClick={openWhatsApp}
               className="cta-button text-lg font-medium font-roboto"
             >
               <span>Quero iniciar meu projeto</span>
@@ -584,7 +635,7 @@ export default function Home() {
       </section>
 
       {/* Why Orbitta Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
         {/* Background Spheres */}
         <div className="floating-sphere sphere-4" />
         <div className="floating-sphere sphere-5" />
@@ -605,22 +656,35 @@ export default function Home() {
                   Nossa Proposta
                 </h3>
                 <h2 className="font-inter text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
-                  Implementar seu Software em semanas, para você monetizar sua base de alunos com lucro e previsibilidade.
+                  Implementar seu Software em semanas, para você monetizar sua
+                  base de alunos com lucro e previsibilidade.
                 </h2>
 
                 <div className="space-y-6">
                   <p className="font-roboto text-lg text-gray-300 font-light">
-                    Criar um software do zero pode parecer algo complexo, <span className="font-bold">mas com a Orbitta, você não precisa se preocupar com nada</span>.
+                    Criar um software do zero pode parecer algo complexo,{" "}
+                    <span className="font-bold">
+                      mas com a Orbitta, você não precisa se preocupar com nada
+                    </span>
+                    .
                   </p>
 
                   <p className="font-roboto text-lg text-gray-300 font-light">
-                    Nosso time <span className="font-bold">faz todo o trabalho</span>, desde a concepção da ideia até a implementação final, entregando um <span className="font-bold">produto 100% personalizado para o seu ecossistema digital</span>.
+                    Nosso time{" "}
+                    <span className="font-bold">faz todo o trabalho</span>,
+                    desde a concepção da ideia até a implementação final,
+                    entregando um{" "}
+                    <span className="font-bold">
+                      produto 100% personalizado para o seu ecossistema digital
+                    </span>
+                    .
                   </p>
 
                   <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-[10px] border border-white/10 p-6 rounded-2xl">
                     <p className="font-roboto text-lg text-gray-200 font-medium">
                       <span className="text-blue-400 mr-2">💡</span>
-                      Você só precisa focar no que faz de melhor: vender e escalar seu negócio.
+                      Você só precisa focar no que faz de melhor: vender e
+                      escalar seu negócio.
                     </p>
                   </div>
                 </div>
@@ -634,9 +698,16 @@ export default function Home() {
                     <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
                       <span className="text-blue-400 font-bold">01</span>
                       <div>
-                        <h4 className="font-inter font-bold mb-2">Estratégia & Planejamento</h4>
+                        <h4 className="font-inter font-bold mb-2">
+                          Estratégia & Planejamento
+                        </h4>
                         <p className="font-roboto text-gray-300 font-light">
-                          Mapeamos seu negócio e identificamos <span className="font-bold">a melhor solução para seu público e modelo de receita</span>.
+                          Mapeamos seu negócio e identificamos{" "}
+                          <span className="font-bold">
+                            a melhor solução para seu público e modelo de
+                            receita
+                          </span>
+                          .
                         </p>
                       </div>
                     </div>
@@ -644,9 +715,14 @@ export default function Home() {
                     <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
                       <span className="text-blue-400 font-bold">02</span>
                       <div>
-                        <h4 className="font-inter font-bold mb-2">Design & Prototipagem</h4>
+                        <h4 className="font-inter font-bold mb-2">
+                          Design & Prototipagem
+                        </h4>
                         <p className="font-roboto text-gray-300 font-light">
-                          Criamos um <span className="font-bold">protótipo funcional</span>, onde você poderá visualizar e validar a experiência do usuário antes do desenvolvimento.
+                          Criamos um{" "}
+                          <span className="font-bold">protótipo funcional</span>
+                          , onde você poderá visualizar e validar a experiência
+                          do usuário antes do desenvolvimento.
                         </p>
                       </div>
                     </div>
@@ -654,9 +730,15 @@ export default function Home() {
                     <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
                       <span className="text-blue-400 font-bold">03</span>
                       <div>
-                        <h4 className="font-inter font-bold mb-2">Desenvolvimento Ágil</h4>
+                        <h4 className="font-inter font-bold mb-2">
+                          Desenvolvimento Ágil
+                        </h4>
                         <p className="font-roboto text-gray-300 font-light">
-                          Construímos seu software em <span className="font-bold">ciclos rápidos e eficientes</span>, garantindo uma implementação sem atrasos.
+                          Construímos seu software em{" "}
+                          <span className="font-bold">
+                            ciclos rápidos e eficientes
+                          </span>
+                          , garantindo uma implementação sem atrasos.
                         </p>
                       </div>
                     </div>
@@ -664,9 +746,17 @@ export default function Home() {
                     <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
                       <span className="text-blue-400 font-bold">04</span>
                       <div>
-                        <h4 className="font-inter font-bold mb-2">Lançamento & Suporte</h4>
+                        <h4 className="font-inter font-bold mb-2">
+                          Lançamento & Suporte
+                        </h4>
                         <p className="font-roboto text-gray-300 font-light">
-                          Fazemos o <span className="font-bold">lançamento do seu software e acompanhamos sua jornada</span> para garantir uma adoção bem-sucedida pelos seus alunos.
+                          Fazemos o{" "}
+                          <span className="font-bold">
+                            lançamento do seu software e acompanhamos sua
+                            jornada
+                          </span>{" "}
+                          para garantir uma adoção bem-sucedida pelos seus
+                          alunos.
                         </p>
                       </div>
                     </div>
@@ -676,13 +766,14 @@ export default function Home() {
                 <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-[10px] border border-white/10 p-6 rounded-2xl">
                   <p className="font-roboto text-lg text-gray-200 font-medium">
                     <span className="text-blue-400 mr-2">🚀</span>
-                    Em poucas semanas, seu software estará pronto para transformar o seu infoproduto e gerar receita recorrente.
+                    Em poucas semanas, seu software estará pronto para
+                    transformar o seu infoproduto e gerar receita recorrente.
                   </p>
                 </div>
 
                 <div className="flex justify-center">
                   <button
-                    onClick={openChat}
+                    onClick={openWhatsApp}
                     className="cta-button text-lg font-medium font-roboto"
                   >
                     <span>Falar com especialista</span>
@@ -695,7 +786,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative py-32">
+      <section id="contact" className="relative py-16 sm:py-24 md:py-32">
         {/* Background Spheres */}
         <div className="floating-sphere sphere-8" />
         <div className="floating-sphere sphere-9" />
@@ -708,20 +799,22 @@ export default function Home() {
             </h2>
             <div className="space-y-6">
               <p className="font-roboto text-lg text-gray-300 font-light">
-                Os maiores infoprodutores já entenderam o poder de um software próprio. <span className="font-bold">Agora é a sua vez.</span>
+                Os maiores infoprodutores já entenderam o poder de um software
+                próprio. <span className="font-bold">Agora é a sua vez.</span>
               </p>
 
               <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-[10px] border border-white/10 p-6 rounded-2xl">
                 <p className="font-roboto text-lg text-gray-200 font-medium">
                   <span className="text-blue-400 mr-2">🚀</span>
-                  Deixe a Orbitta criar, lançar em semanas e comece a monetizar sua base de alunos.
+                  Deixe a Orbitta criar, lançar em semanas e comece a monetizar
+                  sua base de alunos.
                 </p>
               </div>
             </div>
 
             <div className="mt-12">
               <button
-                onClick={openChat}
+                onClick={openWhatsApp}
                 className="cta-button text-xl font-medium font-roboto"
               >
                 <span>Falar com especialista</span>
@@ -732,7 +825,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-16 border-t border-[#f1f1f1]/10">
+      <footer className="relative py-12 sm:py-16 border-t border-[#f1f1f1]/10">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Logo and Description */}

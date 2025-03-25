@@ -1,40 +1,42 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter, Roboto_Flex } from 'next/font/google';
-import Script from 'next/script';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter, Roboto_Flex } from "next/font/google";
+import Script from "next/script";
 
-const inter = Inter({ 
-  subsets: ['latin'], 
-  variable: '--font-inter',
-  display: 'swap',
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const roboto = Roboto_Flex({ 
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
+const roboto = Roboto_Flex({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: 'Orbitta Digital | Criamos aplicativos para infoprodutores',
-  description: 'Transforme seu infoproduto em um aplicativo. Aumente os resultados dos seus alunos e crie uma nova receita recorrente para seu negócio.',
-  keywords: 'infoproduto, aplicativo, desenvolvimento, software, infoprodutor',
+  title: "Orbitta Digital | Criamos aplicativos para infoprodutores",
+  description:
+    "Transforme seu infoproduto em um aplicativo. Aumente os resultados dos seus alunos e crie uma nova receita recorrente para seu negócio.",
+  keywords: "infoproduto, aplicativo, desenvolvimento, software, infoprodutor",
   openGraph: {
-    title: 'Orbitta Digital | Criamos aplicativos para infoprodutores',
-    description: 'Transforme seu infoproduto em um aplicativo. Aumente os resultados dos seus alunos e crie uma nova receita recorrente para seu negócio.',
-    type: 'website',
-    locale: 'pt_BR',
-    url: 'https://orbitta.digital',
+    title: "Orbitta Digital | Criamos aplicativos para infoprodutores",
+    description:
+      "Transforme seu infoproduto em um aplicativo. Aumente os resultados dos seus alunos e crie uma nova receita recorrente para seu negócio.",
+    type: "website",
+    locale: "pt_BR",
+    url: "https://orbitta.digital",
     images: [
       {
-        url: 'https://orbitta.digital/images/logo.jpg',
+        url: "https://orbitta.digital/images/logo.jpg",
         width: 1200,
         height: 630,
-        alt: 'Orbitta Digital Logo',
-      }
+        alt: "Orbitta Digital Logo",
+      },
     ],
-  }
+  },
 };
 
 export default function RootLayout({
@@ -43,7 +45,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className="bg-[#131313] text-[#f1f1f1]" suppressHydrationWarning>
+    <html
+      lang="pt-BR"
+      className="bg-[#131313] text-[#f1f1f1]"
+      suppressHydrationWarning
+    >
       <head>
         {/* Google Tag Manager */}
         <Script
@@ -56,10 +62,10 @@ export default function RootLayout({
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-NQL6VWBT');
-            `
+            `,
           }}
         />
-        
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-F2Z0ZMXQKE"
@@ -74,7 +80,7 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-F2Z0ZMXQKE');
-            `
+            `,
           }}
         />
 
@@ -92,7 +98,7 @@ export default function RootLayout({
                 r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
                 a.appendChild(r);
               })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-            `
+            `,
           }}
         />
 
@@ -112,52 +118,34 @@ export default function RootLayout({
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '1039284119994871');
               fbq('track', 'PageView');
-            `
+            `,
           }}
         />
         <noscript>
-          <img 
-            height="1" 
-            width="1" 
-            style={{ display: 'none' }}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1039284119994871&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
       </head>
-      <body className={`${inter.variable} ${roboto.variable}`} suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${roboto.variable}`}
+        suppressHydrationWarning
+      >
         {/* Google Tag Manager (noscript) */}
         <noscript>
-          <iframe 
+          <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NQL6VWBT"
-            height="0" 
-            width="0" 
-            style={{ display: 'none', visibility: 'hidden' }}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        
+
         {children}
-        
-        {/* Neurolead Script */}
-        <Script
-          id="neurolead-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(a,b,c,d){
-                try{
-                  var e=b.head||b.getElementsByTagName("head")[0];
-                  var f=b.createElement("script");
-                  f.setAttribute("src",c);
-                  f.setAttribute("charset","UTF-8");
-                  f.defer=true;
-                  a.neuroleadId=d;
-                  e.appendChild(f)
-                }catch(g){}
-              })(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","AmByeCy4Vb2d9r5bb7HyhadXe");
-            `
-          }}
-        />
       </body>
     </html>
   );
