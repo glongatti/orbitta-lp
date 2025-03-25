@@ -76,6 +76,18 @@
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(-50%) translateX(0px);
+  }
+  50% {
+    transform: translateY(-50%) translateX(10px);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0px);
+  }
+}
+
 .scroll-indicator {
   position: relative;
   animation: cosmicFloat 3s ease-in-out infinite;
@@ -380,4 +392,9 @@
   position: relative;
   padding: 2rem;
   height: 100%;
+}
+
+.floating-notebook {
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
 }
