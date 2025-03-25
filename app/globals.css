@@ -1,0 +1,383 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes orbit1 {
+  0% {
+    transform: rotate(0deg) translateX(40px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(40px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  0% {
+    transform: rotate(0deg) translateX(60px) translateY(20px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(60px) translateY(20px) rotate(360deg);
+  }
+}
+
+@keyframes orbit3 {
+  0% {
+    transform: rotate(0deg) translateX(-50px) translateY(-30px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(-50px) translateY(-30px) rotate(-360deg);
+  }
+}
+
+@keyframes cosmicBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(90, 55, 159, 0.3),
+                0 0 10px rgba(55, 175, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(90, 55, 159, 0.4),
+                0 0 20px rgba(55, 175, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(90, 55, 159, 0.3),
+                0 0 10px rgba(55, 175, 255, 0.2);
+  }
+}
+
+@keyframes cosmicPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes cosmicFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+.scroll-indicator {
+  position: relative;
+  animation: cosmicFloat 3s ease-in-out infinite;
+}
+
+.scroll-indicator::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(
+    145deg,
+    rgba(90, 55, 159, 0.3),
+    rgba(55, 175, 255, 0.3),
+    rgba(236, 87, 129, 0.3)
+  );
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: cosmicPulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.floating-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  transform-origin: center center;
+}
+
+.sphere-1 {
+  background: #5A379F;
+  width: 360px;
+  height: 360px;
+  top: -180px;
+  left: -180px;
+  animation: orbit1 8s linear infinite;
+  opacity: 0.35;
+}
+
+.sphere-2 {
+  background: #37AFFF;
+  width: 240px;
+  height: 240px;
+  top: 50%;
+  right: -120px;
+  animation: orbit2 12s linear infinite;
+  opacity: 0.3;
+}
+
+.sphere-3 {
+  background: #EC5781;
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  left: 50%;
+  animation: orbit3 10s linear infinite;
+  opacity: 0.32;
+}
+
+.sphere-4 {
+  background: #5A379F;
+  width: 480px;
+  height: 480px;
+  top: 20%;
+  right: -240px;
+  animation: orbit1 15s linear infinite;
+  opacity: 0.25;
+}
+
+.sphere-5 {
+  background: #37AFFF;
+  width: 420px;
+  height: 420px;
+  bottom: 10%;
+  left: -210px;
+  animation: orbit2 18s linear infinite;
+  opacity: 0.22;
+}
+
+.sphere-6 {
+  background: #5A379F;
+  width: 540px;
+  height: 540px;
+  top: 40%;
+  left: -270px;
+  animation: orbit3 20s linear infinite;
+  opacity: 0.18;
+}
+
+.sphere-7 {
+  background: #EC5781;
+  width: 360px;
+  height: 360px;
+  bottom: 20%;
+  right: -180px;
+  animation: orbit1 16s linear infinite;
+  opacity: 0.2;
+}
+
+.sphere-8 {
+  background: #37AFFF;
+  width: 480px;
+  height: 480px;
+  top: 30%;
+  right: -240px;
+  animation: orbit2 14s linear infinite;
+  opacity: 0.18;
+}
+
+.sphere-9 {
+  background: #5A379F;
+  width: 420px;
+  height: 420px;
+  bottom: 15%;
+  left: -210px;
+  animation: orbit3 22s linear infinite;
+  opacity: 0.2;
+}
+
+.cta-button {
+  position: relative;
+  background: rgba(19, 19, 19, 0.5);
+  border-radius: 9999px;
+  padding: 2px;
+  background: linear-gradient(90deg, 
+    #5A379F 0%,
+    #37AFFF 50%,
+    #EC5781 100%
+  );
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(90, 55, 159, 0.3);
+}
+
+.cta-button span {
+  display: block;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  background: #131313;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover span {
+  background: rgba(19, 19, 19, 0.95);
+}
+
+.benefit-card {
+  position: relative;
+  border-radius: 24px;
+  background: linear-gradient(145deg, 
+    rgba(241, 241, 241, 0.03) 0%,
+    rgba(241, 241, 241, 0.01) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid transparent;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  background-clip: padding-box;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(90, 55, 159, 0.3),
+    rgba(55, 175, 255, 0.3),
+    rgba(236, 87, 129, 0.3)
+  );
+  -webkit-mask: 
+    linear-gradient(#f1f1f1 0 0) content-box, 
+    linear-gradient(#f1f1f1 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(145deg,
+    rgba(90, 55, 159, 0.1),
+    rgba(55, 175, 255, 0.1)
+  );
+}
+
+.benefit-card:hover::before {
+  padding: 2px;
+  opacity: 1;
+}
+
+.benefit-card-content {
+  position: relative;
+  padding: 2rem;
+  height: 100%;
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, 
+    rgba(90, 55, 159, 0.2),
+    rgba(55, 175, 255, 0.2)
+  );
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover .icon-wrapper {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, 
+    rgba(90, 55, 159, 0.3),
+    rgba(55, 175, 255, 0.3)
+  );
+}
+
+.cosmic-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, 
+    rgba(241, 241, 241, 0.03) 0%,
+    rgba(241, 241, 241, 0.01) 100%
+  );
+  border: 1px solid rgba(241, 241, 241, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: rgba(241, 241, 241, 0.7);
+}
+
+.cosmic-icon-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg,
+    rgba(90, 55, 159, 0.2),
+    rgba(55, 175, 255, 0.2)
+  );
+  color: #f1f1f1;
+  box-shadow: 0 0 15px rgba(90, 55, 159, 0.3);
+}
+
+.process-card {
+  position: relative;
+  border-radius: 24px;
+  background: linear-gradient(145deg, 
+    rgba(241, 241, 241, 0.03) 0%,
+    rgba(241, 241, 241, 0.01) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid transparent;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  background-clip: padding-box;
+}
+
+.process-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(90, 55, 159, 0.3),
+    rgba(55, 175, 255, 0.3),
+    rgba(236, 87, 129, 0.3)
+  );
+  -webkit-mask: 
+    linear-gradient(#f1f1f1 0 0) content-box, 
+    linear-gradient(#f1f1f1 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(145deg,
+    rgba(90, 55, 159, 0.1),
+    rgba(55, 175, 255, 0.1)
+  );
+}
+
+.process-card:hover::before {
+  padding: 2px;
+  opacity: 1;
+}
+
+.process-card-content {
+  position: relative;
+  padding: 2rem;
+  height: 100%;
+}
