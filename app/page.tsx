@@ -584,122 +584,112 @@ export default function Home() {
       </section>
 
       {/* Why Orbitta Section */}
-      <section className="relative py-32">
+      <section className="relative py-32 overflow-hidden">
         {/* Background Spheres */}
         <div className="floating-sphere sphere-4" />
         <div className="floating-sphere sphere-5" />
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Text Content */}
-            <div className="space-y-8 lg:pr-12">
-              <h2 className="font-inter text-2xl sm:text-3xl md:text-4xl font-thin leading-tight">
-                Por que a <span className="font-semibold">orbitta digital</span>
-                ?
-              </h2>
-
-              <p className="font-roboto text-lg text-gray-300 font-light">
-                Na orbitta, o cliente é o centro do nosso universo. Criamos
-                soluções únicas que orbitam em torno de suas necessidades,
-                carregando o sentido do nosso nome: cercamos, suportamos, e
-                impulsionamos nossos parceiros em direção à inovação sustentável
-                e ao sucesso dos seus projetos.
-              </p>
-
-              <button
-                onClick={openChat}
-                className="cta-button text-lg font-medium font-roboto"
-              >
-                <span>Falar com especialista</span>
-              </button>
-            </div>
-
-            {/* OrbitalSystem */}
-            <div className="relative lg:absolute lg:right-0 lg:w-[800px] lg:h-[800px] lg:-mr-32">
-              <OrbitalSystem />
-            </div>
+        {/* OrbitalSystem Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="absolute right-0 w-[1200px] h-[1200px] -translate-y-1/2 top-1/2">
+            <OrbitalSystem />
           </div>
         </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="relative py-32">
-        {/* Background Spheres */}
-        <div className="floating-sphere sphere-6" />
-        <div className="floating-sphere sphere-7" />
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="font-inter text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-8">
-              Como funciona o nosso processo?
-            </h2>
-          </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="font-roboto text-lg text-[#c7c7c7] font-medium">
+                  Nossa Proposta
+                </h3>
+                <h2 className="font-inter text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
+                  Implementar seu Software em semanas, para você monetizar sua base de alunos com lucro e previsibilidade.
+                </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                number: "01",
-                title: "Estratégia e descoberta",
-                description:
-                  "Mergulhamos fundo no seu negócio para identificar oportunidades únicas de crescimento através da tecnologia.",
-                gradient: "from-[#5A379F] to-[#37AFFF]",
-              },
-              {
-                number: "02",
-                title: "Escopo e planejamento",
-                description:
-                  "Definimos juntos o escopo ideal do projeto, estabelecendo metas claras e um cronograma realista.",
-                gradient: "from-[#37AFFF] to-[#EC5781]",
-              },
-              {
-                number: "03",
-                title: "Design e prototipagem",
-                description:
-                  "Criamos protótipos interativos que permitem visualizar e refinar a experiência do usuário.",
-                gradient: "from-[#EC5781] to-[#5A379F]",
-              },
-              {
-                number: "04",
-                title: "Desenvolvimento ágil",
-                description:
-                  "Implementamos sua solução em ciclos curtos, permitindo ajustes e melhorias contínuas.",
-                gradient: "from-[#5A379F] to-[#37AFFF]",
-              },
-              {
-                number: "05",
-                title: "Testes e refinamento",
-                description:
-                  "Realizamos testes rigorosos para garantir uma experiência perfeita para seus usuários.",
-                gradient: "from-[#37AFFF] to-[#EC5781]",
-              },
-              {
-                number: "06",
-                title: "Lançamento e suporte",
-                description:
-                  "Acompanhamos o lançamento e oferecemos suporte contínuo para o sucesso do seu projeto.",
-                gradient: "from-[#EC5781] to-[#5A379F]",
-              },
-            ].map((step, index) => (
-              <div key={index} className="process-card group">
-                <div className="process-card-content">
-                  <div className="flex items-center gap-4 mb-6">
-                    <span
-                      className={`text-4xl font-bold bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500`}
-                    >
-                      {step.number}
-                    </span>
+                <div className="space-y-6">
+                  <p className="font-roboto text-lg text-gray-300 font-light">
+                    Criar um software do zero pode parecer algo complexo, <span className="font-bold">mas com a Orbitta, você não precisa se preocupar com nada</span>.
+                  </p>
+
+                  <p className="font-roboto text-lg text-gray-300 font-light">
+                    Nosso time <span className="font-bold">faz todo o trabalho</span>, desde a concepção da ideia até a implementação final, entregando um <span className="font-bold">produto 100% personalizado para o seu ecossistema digital</span>.
+                  </p>
+
+                  <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-[10px] border border-white/10 p-6 rounded-2xl">
+                    <p className="font-roboto text-lg text-gray-200 font-medium">
+                      <span className="text-blue-400 mr-2">💡</span>
+                      Você só precisa focar no que faz de melhor: vender e escalar seu negócio.
+                    </p>
                   </div>
-                  <h3 className="font-inter font-bold text-xl mb-3">
-                    {step.title}
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="font-inter text-xl font-bold">
+                    Como Funciona na Prática?
                   </h3>
-                  <p className="font-roboto font-light text-gray-300">
-                    {step.description}
+
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
+                      <span className="text-blue-400 font-bold">01</span>
+                      <div>
+                        <h4 className="font-inter font-bold mb-2">Estratégia & Planejamento</h4>
+                        <p className="font-roboto text-gray-300 font-light">
+                          Mapeamos seu negócio e identificamos <span className="font-bold">a melhor solução para seu público e modelo de receita</span>.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
+                      <span className="text-blue-400 font-bold">02</span>
+                      <div>
+                        <h4 className="font-inter font-bold mb-2">Design & Prototipagem</h4>
+                        <p className="font-roboto text-gray-300 font-light">
+                          Criamos um <span className="font-bold">protótipo funcional</span>, onde você poderá visualizar e validar a experiência do usuário antes do desenvolvimento.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
+                      <span className="text-blue-400 font-bold">03</span>
+                      <div>
+                        <h4 className="font-inter font-bold mb-2">Desenvolvimento Ágil</h4>
+                        <p className="font-roboto text-gray-300 font-light">
+                          Construímos seu software em <span className="font-bold">ciclos rápidos e eficientes</span>, garantindo uma implementação sem atrasos.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-6 rounded-2xl text-left">
+                      <span className="text-blue-400 font-bold">04</span>
+                      <div>
+                        <h4 className="font-inter font-bold mb-2">Lançamento & Suporte</h4>
+                        <p className="font-roboto text-gray-300 font-light">
+                          Fazemos o <span className="font-bold">lançamento do seu software e acompanhamos sua jornada</span> para garantir uma adoção bem-sucedida pelos seus alunos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-[10px] border border-white/10 p-6 rounded-2xl">
+                  <p className="font-roboto text-lg text-gray-200 font-medium">
+                    <span className="text-blue-400 mr-2">🚀</span>
+                    Em poucas semanas, seu software estará pronto para transformar o seu infoproduto e gerar receita recorrente.
                   </p>
                 </div>
+
+                <div className="flex justify-center">
+                  <button
+                    onClick={openChat}
+                    className="cta-button text-lg font-medium font-roboto"
+                  >
+                    <span>Falar com especialista</span>
+                  </button>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -713,22 +703,30 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="font-inter text-3xl sm:text-3xl md:text-4xl font-thin leading-tight mb-8">
-              Apenas mais um passo para o seu{" "}
-              <span className="font-semibold">projeto nascer</span>
+            <h2 className="font-inter text-3xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-8">
+              Pronto Para Criar Sua Nova Fonte de Receita Recorrente?
             </h2>
-            <p className="font-roboto text-lg text-gray-300 font-light mb-12">
-              Toque no botão abaixo para falar diretamente com um de nossos
-              especialistas e entenda como a orbitta pode ajudar você e seus
-              alunos desenvolvendo aplicativos e plataformas personalizadas.
-            </p>
+            <div className="space-y-6">
+              <p className="font-roboto text-lg text-gray-300 font-light">
+                Os maiores infoprodutores já entenderam o poder de um software próprio. <span className="font-bold">Agora é a sua vez.</span>
+              </p>
 
-            <button
-              onClick={openChat}
-              className="cta-button text-xl font-medium font-roboto"
-            >
-              <span>Falar com especialista</span>
-            </button>
+              <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-[10px] border border-white/10 p-6 rounded-2xl">
+                <p className="font-roboto text-lg text-gray-200 font-medium">
+                  <span className="text-blue-400 mr-2">🚀</span>
+                  Deixe a Orbitta criar, lançar em semanas e comece a monetizar sua base de alunos.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <button
+                onClick={openChat}
+                className="cta-button text-xl font-medium font-roboto"
+              >
+                <span>Falar com especialista</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
