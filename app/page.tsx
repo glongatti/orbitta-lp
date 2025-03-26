@@ -54,9 +54,9 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="py-4 sm:py-6 flex justify-between items-center">
-            <div className="font-roboto text-lg sm:text-xl font-medium">
-              orbitta digital
+          <nav className="py-4 sm:py-6 flex justify-center items-center">
+            <div className="font-roboto text-lg sm:text-xl font-light">
+              orbitta.digital
             </div>
           </nav>
 
@@ -70,10 +70,20 @@ export default function Home() {
 
               <div>
                 <p className="font-roboto text-lg sm:text-xl text-[#c7c7c7] font-light">
-                  Vamos construir em semanas um software que ajudará seu aluno a
-                  ter mais resultados, enquanto gera uma nova fonte de receita
-                  para o seu negócio escalar ainda mais.
+                  Assista o vídeo e entenda como transformar sua base de alunos e leads em uma fonte previsível de receita recorrente:
                 </p>
+              </div>
+
+              {/* Mobile Video */}
+              <div className="relative block lg:hidden">
+                <div style={{ position: 'relative', paddingBottom: '59.11330049261084%', height: 0 }}>
+                  <iframe 
+                    src="https://www.loom.com/embed/be9e9b0b0cce4977a09c02f6d8a1a7c4?sid=b5c5f41e-2714-4017-b853-95993acf10b5" 
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  />
+                </div>
               </div>
 
               <div className="pt-2">
@@ -86,22 +96,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Image */}
+            {/* Desktop Video */}
             <div className="relative lg:block hidden">
-              <img
-                src="/images/notebook.png"
-                alt="Notebook com software personalizado"
-                className="w-full max-w-[600px] h-auto absolute lg:right-0 top-1/2 -translate-y-1/2 floating-notebook"
-              />
-            </div>
-
-            {/* Mobile Image */}
-            <div className="relative block lg:hidden -mt-8">
-              <img
-                src="/images/notebook.png"
-                alt="Notebook com software personalizado"
-                className="w-full h-auto floating-notebook"
-              />
+              <div className="w-full max-w-[600px] absolute lg:right-0 top-1/2 -translate-y-1/2">
+                <div style={{ position: 'relative', paddingBottom: '59.11330049261084%', height: 0 }}>
+                  <iframe 
+                    src="https://www.loom.com/embed/be9e9b0b0cce4977a09c02f6d8a1a7c4?sid=b5c5f41e-2714-4017-b853-95993acf10b5" 
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Scroll Indicator - Hidden on mobile */}
@@ -830,8 +836,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Logo and Description */}
             <div className="space-y-4">
-              <div className="font-roboto text-xl font-medium">
-                orbitta digital
+              <div className="font-roboto text-xl font-light">
+                orbitta.digital
               </div>
               <p className="font-roboto text-sm text-gray-400 font-light">
                 Transformando infoprodutos em soluções digitais inovadoras.
