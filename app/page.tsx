@@ -30,7 +30,7 @@ export default function Home() {
     }
 
     window.open(
-      "https://api.whatsapp.com/send/?phone=5511971683453&text=Oi%2C+quero+lan%C3%A7ar+o+meu+SaaS%21&type=phone_number&app_absent=0https://wa.me/5511971683453?text=Oi, quero lançar o meu SaaS!",
+      "https://wa.me/5511971683453/?text=Oi, quero lançar o meu SaaS!",
       "_blank"
     );
   };
@@ -70,18 +70,31 @@ export default function Home() {
 
               <div>
                 <p className="font-roboto text-lg sm:text-xl text-[#c7c7c7] font-light">
-                  Assista o vídeo e entenda como transformar sua base de alunos e leads em uma fonte previsível de receita recorrente:
+                  Assista o vídeo e entenda como transformar sua base de alunos
+                  e leads em uma fonte previsível de receita recorrente:
                 </p>
               </div>
 
               {/* Mobile Video */}
               <div className="relative block lg:hidden">
-                <div style={{ position: 'relative', paddingBottom: '59.11330049261084%', height: 0 }}>
-                  <iframe 
-                    src="https://www.loom.com/embed/be9e9b0b0cce4977a09c02f6d8a1a7c4?sid=b5c5f41e-2714-4017-b853-95993acf10b5" 
-                    frameBorder="0" 
+                <div
+                  style={{
+                    position: "relative",
+                    paddingBottom: "59.11330049261084%",
+                    height: 0,
+                  }}
+                >
+                  <iframe
+                    src="https://www.loom.com/embed/be9e9b0b0cce4977a09c02f6d8a1a7c4?sid=b5c5f41e-2714-4017-b853-95993acf10b5"
+                    frameBorder="0"
                     allowFullScreen
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
                   />
                 </div>
               </div>
@@ -99,12 +112,24 @@ export default function Home() {
             {/* Desktop Video */}
             <div className="relative lg:block hidden">
               <div className="w-full max-w-[600px] absolute lg:right-0 top-1/2 -translate-y-1/2">
-                <div style={{ position: 'relative', paddingBottom: '59.11330049261084%', height: 0 }}>
-                  <iframe 
-                    src="https://www.loom.com/embed/be9e9b0b0cce4977a09c02f6d8a1a7c4?sid=b5c5f41e-2714-4017-b853-95993acf10b5" 
-                    frameBorder="0" 
+                <div
+                  style={{
+                    position: "relative",
+                    paddingBottom: "59.11330049261084%",
+                    height: 0,
+                  }}
+                >
+                  <iframe
+                    src="https://www.loom.com/embed/be9e9b0b0cce4977a09c02f6d8a1a7c4?sid=b5c5f41e-2714-4017-b853-95993acf10b5"
+                    frameBorder="0"
                     allowFullScreen
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
                   />
                 </div>
               </div>
