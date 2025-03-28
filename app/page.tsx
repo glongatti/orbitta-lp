@@ -76,7 +76,7 @@ export default function Home() {
               </div>
 
               {/* Mobile Video */}
-              <div className="relative block lg:hidden">
+              <div className="md:hidden">
                 <div
                   style={{
                     position: "relative",
@@ -110,8 +110,8 @@ export default function Home() {
             </div>
 
             {/* Desktop Video */}
-            <div className="relative lg:block hidden">
-              <div className="w-full max-w-[600px] absolute lg:right-0 top-1/2 -translate-y-1/2">
+            <div className="hidden md:block">
+              <div className="w-full max-w-[600px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
                 <div
                   style={{
                     position: "relative",
